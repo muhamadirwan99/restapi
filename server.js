@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 //setup multer
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'images');
+        cb(null, '/root/restapi/images');
     },
     filename: (req, file, cb) => {
-        cb(null, new Date().toString() + '-' + file.originalname)
+        cb(null, new Date().getTime() + '-' + file.originalname)
     }
 });
 
