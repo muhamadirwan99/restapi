@@ -8,6 +8,12 @@ exports.index = function(req, res){
 }
 
 //add file
+if(!req.file){
+    const err = new Error('Image harus di upload');
+    err.errorstatus = 422;
+    throw err;
+}
+
 exports.addFile = function(req, res){
     var nama = req.body.nama;
     var tanggal = req.body.tanggal;
